@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biology Quest Form 5 | DLP</title>
+<style>
+:root{--bg:#091225;--panel:#121f3b;--panel2:#172949;--line:#2b4168;--text:#f3f7ff;--muted:#aebddd;--cyan:#67e8f9;--lime:#bef264;--pink:#f9a8d4;--good:#86efac;--bad:#fda4af}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);background:radial-gradient(circle at 15% 0%,#1c3462 0,transparent 36%),radial-gradient(circle at 95% 15%,#25315e 0,transparent 30%),var(--bg);min-height:100vh;padding:20px}
+.wrap{max-width:900px;margin:auto}.top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:4px 0 18px}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--cyan),#a78bfa);color:#081226;font-size:25px;font-weight:900;box-shadow:0 8px 30px #67e8f933}.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);font-weight:800}.brand h1{font-size:clamp(20px,4vw,30px);margin:2px 0}.tag{border:1px solid var(--line);background:#111e37aa;border-radius:999px;padding:8px 12px;color:var(--muted);font-size:12px;white-space:nowrap}
+.card{background:linear-gradient(145deg,#142441f5,#101a32f5);border:1px solid var(--line);border-radius:24px;padding:clamp(18px,4vw,32px);box-shadow:0 18px 60px #0004}.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:22px;align-items:center}.hero h2{font-size:clamp(28px,5vw,44px);line-height:1.06;margin:12px 0}.hero h2 span{color:var(--cyan)}.hero p{color:var(--muted);line-height:1.6}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{padding:15px;border:1px solid var(--line);background:#0b1730;border-radius:16px}.stat strong{display:block;font-size:24px;color:var(--lime)}.stat small{color:var(--muted)}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}.fields label{display:block;font-size:12px;color:var(--muted);margin-bottom:7px}.fields input{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:#09152b;color:var(--text);font:inherit;outline:none}.fields input:focus{border-color:var(--cyan)}button{border:0;font:inherit;font-weight:800;cursor:pointer;border-radius:13px;padding:13px 18px;transition:transform .15s,filter .15s}button:hover{filter:brightness(1.08);transform:translateY(-1px)}button:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}.primary{background:linear-gradient(100deg,var(--cyan),#a5f3fc);color:#071426}.secondary{background:#223658;color:var(--text);border:1px solid #3c5681}.muted{color:var(--muted)}.wide{width:100%}.smallnote{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.5}
+.hidden{display:none!important}.gamehead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}.chip{font-size:12px;color:var(--cyan);border:1px solid #2e5775;background:#0a2035;padding:7px 11px;border-radius:999px}.progressline{height:8px;background:#263858;border-radius:999px;overflow:hidden;margin:12px 0 24px}.progressline div{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),#a78bfa);transition:width .25s}.qnum{color:var(--lime);font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase}.question{font-size:clamp(21px,3.5vw,29px);line-height:1.3;margin:10px 0 20px}.options{display:grid;gap:10px}.option{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;background:#0b1730;color:var(--text);border:1px solid #2b4168;padding:15px;border-radius:14px;font-weight:600;line-height:1.4}.letter{flex:0 0 28px;height:28px;border-radius:9px;display:grid;place-items:center;background:#203557;color:var(--cyan);font-size:13px}.option.correct{border-color:#4ade80;background:#103328}.option.correct .letter{background:#4ade80;color:#082016}.option.wrong{border-color:#fb7185;background:#351b2c}.option.wrong .letter{background:#fb7185;color:#270a12}.option:disabled{cursor:default;transform:none}.feedback{margin-top:17px;padding:15px;border-radius:14px;line-height:1.5}.feedback.good{background:#0d3028;border:1px solid #287b5a}.feedback.bad{background:#351b2c;border:1px solid #8e3b53}.feedback strong{display:block;margin-bottom:4px}.gamefoot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:18px}.scorelive{font-size:13px;color:var(--muted)}.resulttitle{font-size:clamp(28px,5vw,42px);margin:8px 0}.scorebig{font-size:clamp(40px,8vw,64px);font-weight:900;color:var(--lime);line-height:1}.resultgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}.resultgrid .stat strong{font-size:22px}.review{margin-top:24px}.review h3{margin-bottom:8px}.reviewitem{padding:14px 0;border-bottom:1px solid var(--line);line-height:1.5}.reviewitem .answer{color:var(--good);font-size:13px}.reviewitem .your{color:var(--bad);font-size:13px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.chapterlist{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.chapterlist span{font-size:11px;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:6px 8px}
+@media(max-width:650px){body{padding:12px}.hero{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.fields{grid-template-columns:1fr}.tag{display:none}.gamefoot{align-items:stretch;flex-direction:column-reverse}.gamefoot button{width:100%}.resultgrid{grid-template-columns:1fr 1fr}.resultgrid .stat:last-child{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><div class="logo">B</div><div><div class="eyebrow">DLP • Form 5</div><h1>Biology Quest</h1></div></div>
+    <div class="tag">🧬 Learn • Think • Conquer</div>
+  </header>
+
+  <section id="start" class="card">
+    <div class="hero">
+      <div>
+        <div class="eyebrow">Your biology mission starts here</div>
+        <h2>Ready to test your<br><span>biology mastery?</span></h2>
+        <p>Take on 40 multiple-choice questions across Form 5 Biology Chapters 1–13. Get instant feedback, learn from explanations, and review your answers at the end.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><strong>40</strong><small>Questions</small></div>
+        <div class="stat"><strong>13</strong><small>Chapters covered</small></div>
+        <div class="stat"><strong>400</strong><small>Maximum points</small></div>
+        <div class="stat"><strong>15–20</strong><small>Minutes (approx.)</small></div>
+      </div>
+    </div>
+    <div class="fields">
+      <div><label for="studentName">STUDENT NAME</label><input id="studentName" autocomplete="name" placeholder="Enter your name" maxlength="80"></div>
+      <div><label for="studentClass">CLASS</label><input id="studentClass" placeholder="e.g. 5 Amanah" maxlength="40"></div>
+    </div>
+    <button class="primary wide" id="startBtn">START QUEST →</button>
+    <p class="smallnote">How to play: choose one answer (A–D). Each correct answer earns 10 points. Feedback and a short explanation appear after every answer. This is a revision game; always refer to your KSSM Biology textbook for full notes.</p>
+    <div class="chapterlist" aria-label="Chapters covered">
+      <span>Ch 1 Plant Growth</span><span>Ch 2 Leaf</span><span>Ch 3 Nutrition</span><span>Ch 4 Transport</span><span>Ch 5 Plant Response</span><span>Ch 6 Reproduction</span><span>Ch 7 Adaptation</span><span>Ch 8 Biodiversity</span><span>Ch 9 Ecosystems</span><span>Ch 10 Sustainability</span><span>Ch 11 Inheritance</span><span>Ch 12 Variation</span><span>Ch 13 Genetic Technology</span>
+    </div>
+  </section>
+
+  <section id="game" class="card hidden" aria-live="polite">
+    <div class="gamehead"><span class="chip" id="chapterChip">CHAPTER</span><span class="chip" id="progressText">Question 1 / 40</span><span class="chip" id="pointsText">0 / 400 pts</span></div>
+    <div class="progressline"><div id="progressBar"></div></div>
+    <div class="qnum" id="qnum">QUESTION 01</div>
+    <h2 class="question" id="questionText"></h2>
+    <div class="options" id="options"></div>
+    <div id="feedback" class="feedback hidden"></div>
+    <div class="gamefoot"><div class="scorelive" id="scoreLive">Correct answers: 0</div><button id="nextBtn" class="primary hidden">NEXT QUESTION →</button></div>
+  </section>
+
+  <section id="results" class="card hidden">
+    <div class="eyebrow">Quest complete</div>
+    <h2 class="resulttitle" id="resultHeading">Well done!</h2>
+    <div class="scorebig" id="finalScore">0 / 400</div>
+    <p class="muted" id="resultMessage"></p>
+    <div class="resultgrid">
+      <div class="stat"><strong id="correctCount">0/40</strong><small>Correct answers</small></div>
+      <div class="stat"><strong id="percentage">0%</strong><small>Score percentage</small></div>
+      <div class="stat"><strong id="timeTaken">—</strong><small>Time taken</small></div>
+    </div>
+    <p id="studentSummary" class="muted"></p>
+    <div class="actions"><button id="copyBtn" class="primary">COPY RESULTS</button><button id="restartBtn" class="secondary">PLAY AGAIN ↻</button></div>
+    <div class="review"><h3>Answer review</h3><p class="muted">Use the review to identify topics to revise.</p><div id="reviewList"></div></div>
+  </section>
+  <p class="smallnote" style="text-align:center;margin:18px 0 8px">BIOLOGY QUEST • FORM 5 • DLP • Built for independent revision</p>
+</div>
+<script>
+const questions = [
+{c:1,t:"Organisation of Plant Tissues and Growth",q:"Which tissue is responsible for primary growth by repeated cell division at the tips of roots and shoots?",o:["Lateral meristem","Apical meristem","Xylem","Phloem"],a:1,e:"Apical meristems are found at root and shoot tips. Their cell division increases the length of the plant."},
+{c:1,t:"Organisation of Plant Tissues and Growth",q:"Which statement best describes the function of xylem tissue?",o:["Transports sucrose from leaves","Transports water and mineral salts, mainly from roots upwards","Produces pollen grains","Absorbs light for photosynthesis"],a:1,e:"Xylem transports water and mineral salts from roots to the rest of the plant and also provides support."},
+{c:1,t:"Organisation of Plant Tissues and Growth",q:"A ring of bark is removed from a woody stem, including the phloem but leaving the xylem intact. What is likely to accumulate above the ring?",o:["Sucrose","Oxygen only","Mineral salts only","Carbon dioxide"],a:0,e:"Phloem transports organic substances such as sucrose. Removing a ring of phloem interrupts their movement down the stem, so sugars may accumulate above it."},
+{c:2,t:"Leaf Structure and Function",q:"Which feature of a typical leaf allows carbon dioxide to diffuse into the leaf?",o:["Cuticle only","Stomata","Xylem vessels","Palisade cell walls only"],a:1,e:"Stomata are pores that allow gas exchange. Their opening and closing are controlled by guard cells."},
+{c:2,t:"Leaf Structure and Function",q:"Why are palisade mesophyll cells usually located near the upper epidermis?",o:["They contain many chloroplasts and receive more light","They prevent all water loss","They transport sugars to the roots","They absorb minerals from soil"],a:0,e:"Palisade mesophyll cells contain many chloroplasts and are positioned to capture light efficiently for photosynthesis."},
+{c:2,t:"Leaf Structure and Function",q:"Which adaptation helps reduce excessive water loss from a leaf?",o:["A very thin or absent cuticle","A thick waxy cuticle","More open stomata at all times","Large air spaces with no regulation"],a:1,e:"A waxy cuticle reduces evaporation from the leaf surface."},
+{c:3,t:"Nutrition",q:"Which equation summarises photosynthesis?",o:["Glucose + oxygen → carbon dioxide + water","Carbon dioxide + water → glucose + oxygen","Protein → amino acids + oxygen","Starch + water → carbon dioxide + light"],a:1,e:"In the presence of light and chlorophyll, carbon dioxide and water are converted into glucose and oxygen."},
+{c:3,t:"Nutrition",q:"What is the main role of magnesium ions in plants?",o:["Formation of chlorophyll","Formation of cellulose only","Opening of xylem vessels","Breaking down glucose during digestion"],a:0,e:"Magnesium is needed to synthesise chlorophyll. Deficiency may cause chlorosis, especially in older leaves."},
+{c:3,t:"Nutrition",q:"A leaf is destarched, partly covered with opaque paper, and exposed to sunlight. After the iodine test, which area should turn blue-black?",o:["Only the covered area","The exposed area containing starch","The entire leaf must remain brown","Only the leaf veins"],a:1,e:"The exposed area receives light and can photosynthesise, producing starch. Iodine turns blue-black when starch is present."},
+{c:4,t:"Transport in Plants",q:"Which process mainly generates the pulling force that moves water up the xylem in a tall plant?",o:["Transpiration pull","Translocation in phloem","Active transport of sucrose","Diffusion of oxygen into roots"],a:0,e:"Evaporation of water from leaves creates tension that pulls a continuous column of water upwards through the xylem."},
+{c:4,t:"Transport in Plants",q:"Which statement about translocation is correct?",o:["It occurs only in dead xylem vessels","It moves organic substances through phloem from sources to sinks","It always moves only upwards","It transports water only"],a:1,e:"Translocation transports sucrose and other organic substances in the phloem. Movement can be upwards or downwards, depending on source and sink."},
+{c:4,t:"Transport in Plants",q:"On a hot, dry and windy day, the rate of transpiration is generally likely to:",o:["Increase because evaporation and diffusion are faster","Stop permanently","Remain zero because roots stop absorbing water","Decrease in every circumstance"],a:0,e:"Higher temperature, lower humidity and wind commonly increase transpiration, although severe water stress may cause stomata to close."},
+{c:5,t:"Response in Plants",q:"A shoot bends towards a light source. This response is called:",o:["Positive geotropism","Negative phototropism","Positive phototropism","Thigmonasty"],a:2,e:"Positive phototropism is growth towards light. Unequal auxin distribution causes cells on the shaded side of a shoot to elongate more."},
+{c:5,t:"Response in Plants",q:"Which plant hormone is strongly associated with cell elongation in shoots and tropic responses?",o:["Auxin","Insulin","Adrenaline","Thyroxine"],a:0,e:"Auxin influences cell elongation and helps coordinate growth responses such as phototropism and gravitropism."},
+{c:5,t:"Response in Plants",q:"A tendril coils around a support after touching it. Which response is shown?",o:["Phototropism","Thigmotropism","Hydrotropism","Chemotropism"],a:1,e:"Thigmotropism is a directional growth response to touch or contact with an object."},
+{c:6,t:"Sexual Reproduction in Flowering Plants",q:"Which structure develops into a seed after fertilisation in a flowering plant?",o:["Ovary wall","Ovule","Stigma","Anther"],a:1,e:"After fertilisation, the ovule develops into a seed and the ovary usually develops into a fruit."},
+{c:6,t:"Sexual Reproduction in Flowering Plants",q:"What is double fertilisation in flowering plants?",o:["Two pollen grains fuse with one egg cell","One male nucleus fuses with the egg, and another fuses with the polar nuclei","The egg divides twice before fertilisation","Two ovules develop inside every seed"],a:1,e:"One male gamete fuses with the egg cell to form a diploid zygote; the other fuses with the polar nuclei to form the endosperm nucleus."},
+{c:6,t:"Sexual Reproduction in Flowering Plants",q:"Which feature is most commonly associated with wind-pollinated flowers?",o:["Large, brightly coloured petals and nectar","Light pollen produced in large quantities and exposed anthers","Sticky pollen and a strong scent only","A stigma always enclosed inside the ovary"],a:1,e:"Wind-pollinated flowers often have exposed anthers, feathery stigmas and abundant lightweight pollen."},
+{c:7,t:"Adaptations of Plants in Different Habitats",q:"Which feature helps a xerophyte reduce water loss?",o:["Broad, thin leaves with many exposed stomata","Sunken stomata and a thick cuticle","Large floating leaves with stomata only on top","Pneumatophores in all conditions"],a:1,e:"Xerophytes are adapted to dry habitats. Sunken stomata and a thick cuticle reduce the water-vapour gradient and water loss."},
+{c:7,t:"Adaptations of Plants in Different Habitats",q:"Pneumatophores in some mangrove plants mainly help with:",o:["Absorbing sunlight underwater","Gas exchange in waterlogged, oxygen-poor soil","Attracting pollinators with nectar","Storing pollen grains"],a:1,e:"Pneumatophores project above the mud and enable gas exchange where the soil contains little oxygen."},
+{c:7,t:"Adaptations of Plants in Different Habitats",q:"Which adaptation is useful for a submerged aquatic plant?",o:["Flexible stems and reduced supporting tissue","Extremely thick bark to prevent all gas exchange","Deep tap roots in dry sand only","Sunken stomata on every submerged surface"],a:0,e:"Water supports aquatic plants, so they often have flexible stems and less supporting tissue. Submerged leaves can exchange gases directly with water."},
+{c:8,t:"Biodiversity",q:"What is biodiversity?",o:["The number of people in an ecosystem","The variety of living organisms, including genetic, species and ecosystem diversity","The total amount of rainfall in a habitat","The number of non-living factors only"],a:1,e:"Biodiversity includes diversity within species, between species and among ecosystems."},
+{c:8,t:"Biodiversity",q:"Which action is an example of in-situ conservation?",o:["Keeping endangered animals in a zoo only","Storing seeds in a seed bank only","Protecting a species in its natural habitat through a national park","Displaying preserved specimens in a museum"],a:2,e:"In-situ conservation protects organisms within their natural habitats, for example in national parks and wildlife reserves."},
+{c:8,t:"Biodiversity",q:"Why can high biodiversity make an ecosystem more resilient?",o:["It guarantees that no species will ever become extinct","Different species may perform overlapping ecological roles, helping the system cope with change","It removes all competition","It stops every environmental disturbance"],a:1,e:"Greater diversity can provide alternative ecological functions and improve ecosystem stability, although it does not guarantee immunity from extinction or disturbance."},
+{c:9,t:"Ecosystems",q:"In a food chain, which organism is a primary consumer?",o:["A green plant","A herbivore that feeds on a producer","A decomposer only","A top carnivore that eats secondary consumers"],a:1,e:"Primary consumers feed directly on producers, usually plants or algae."},
+{c:9,t:"Ecosystems",q:"Why is energy available generally lower at each successive trophic level?",o:["All energy is recycled without loss","Energy is lost as heat and used in life processes at each level","Consumers create energy from nothing","Producers do not contain chemical energy"],a:1,e:"Only part of the energy is transferred to the next trophic level. Much is used in respiration and lost as heat or remains in uneaten material."},
+{c:9,t:"Ecosystems",q:"Which organisms play a major role in recycling nutrients by breaking down dead matter?",o:["Producers only","Decomposers such as bacteria and fungi","Primary consumers only","Pollinators only"],a:1,e:"Decomposers break down dead organisms and waste, returning mineral nutrients to the environment."},
+{c:10,t:"Environmental Sustainability",q:"Which is the best example of reducing a household's carbon footprint?",o:["Leaving lights on when rooms are empty","Using energy-efficient appliances and switching off unused equipment","Burning more fossil fuels for convenience","Throwing all waste into rivers"],a:1,e:"Using energy efficiently reduces electricity demand and associated greenhouse-gas emissions."},
+{c:10,t:"Environmental Sustainability",q:"Eutrophication in a lake is commonly caused by:",o:["Excess nitrate and phosphate entering the water","A complete absence of nutrients","Only a small increase in dissolved oxygen","Too many rocks at the bottom"],a:0,e:"Excess nutrients from fertilisers or sewage can trigger algal blooms. Decomposition then reduces dissolved oxygen and may kill aquatic organisms."},
+{c:10,t:"Environmental Sustainability",q:"Which sequence best describes a common consequence of a large algal bloom?",o:["More light reaches deep water → photosynthesis stops at the surface","Algae die → decomposers increase respiration → dissolved oxygen decreases","Oxygen decreases → all decomposers immediately die → water becomes sterile","Nutrients disappear → oxygen rises indefinitely"],a:1,e:"When algae die, decomposers break them down and use dissolved oxygen, which can cause hypoxia and fish deaths."},
+{c:11,t:"Inheritance",q:"An organism with genotype Tt is described as:",o:["Homozygous dominant","Heterozygous","Homozygous recessive","A phenotype only"],a:1,e:"Tt contains two different alleles, so the genotype is heterozygous."},
+{c:11,t:"Inheritance",q:"In a monohybrid cross Tt × Tt, assuming complete dominance, what is the expected genotypic ratio?",o:["3 : 1","1 : 1","1 TT : 2 Tt : 1 tt","All Tt"],a:2,e:"Each parent can contribute T or t. The possible offspring genotypes are TT, Tt, Tt and tt, giving 1:2:1."},
+{c:11,t:"Inheritance",q:"A person with blood group AB has which ABO alleles?",o:["IᴬIᴬ","Iᴮi","IᴬIᴮ","ii"],a:2,e:"Iᴬ and Iᴮ are codominant, so both A and B antigens are expressed in an AB individual."},
+{c:12,t:"Variation",q:"Which is an example of continuous variation in humans?",o:["ABO blood group","Ability to roll the tongue as a simple category","Human height","Biological sex as commonly recorded at birth"],a:2,e:"Height shows a range of values and is influenced by many genes and environmental factors, making it a typical example of continuous variation."},
+{c:12,t:"Variation",q:"Which factor can cause discontinuous variation?",o:["A single gene with distinct allele combinations","Many genes plus a wide range of environmental influences only","A gradual change in temperature alone","Differences in nutrition always produce separate categories"],a:0,e:"Discontinuous variation often has distinct categories and may be controlled by one or a few genes, with relatively little environmental influence."},
+{c:12,t:"Variation",q:"Which statement correctly compares mutation and environmental effects?",o:["All mutations are harmful","Environmental factors can affect phenotype without changing the DNA sequence","Environment always changes an individual's alleles","Mutations never create new alleles"],a:1,e:"Environmental conditions such as nutrition can influence phenotype without altering the DNA sequence. Mutations are changes in genetic material and may be harmful, neutral or beneficial."},
+{c:13,t:"Genetic Technology",q:"What is the purpose of using a restriction enzyme in recombinant DNA technology?",o:["To cut DNA at specific recognition sequences","To translate mRNA into a protein","To destroy every plasmid in a cell","To produce ATP during respiration"],a:0,e:"Restriction enzymes cut DNA at particular recognition sequences, allowing a gene and vector to be joined in recombinant DNA work."},
+{c:13,t:"Genetic Technology",q:"In genetic engineering, a plasmid is commonly used as:",o:["A vector to carry a desired gene into a host cell","An enzyme that copies proteins","A type of ribosome","A hormone that switches off all genes"],a:0,e:"A plasmid is a small circular DNA molecule that can act as a vector to transfer a desired gene into a host cell."},
+{c:13,t:"Genetic Technology",q:"Which statement about genetically modified organisms (GMOs) is most scientifically appropriate?",o:["Every GMO is automatically dangerous","Every GMO is automatically risk-free","Potential benefits and risks should be assessed case by case using scientific evidence","A GMO always has no change to its DNA"],a:2,e:"GMOs can have useful applications, but safety and environmental effects should be evaluated for the particular organism and intended use."}
+];
+let idx=0, score=0, correct=0, chosen=[], startedAt=0, locked=false;
+const $=id=>document.getElementById(id);
+function show(id){$(id).classList.remove('hidden')} function hide(id){$(id).classList.add('hidden')}
+function startGame(){
+  if(!$('studentName').value.trim()){$('studentName').focus();$('studentName').placeholder='Please enter your name first';return;}
+  idx=0;score=0;correct=0;chosen=[];startedAt=Date.now();locked=false;
+  hide('start');hide('results');show('game');renderQuestion();
+}
+function renderQuestion(){
+  locked=false;const q=questions[idx];
+  $('chapterChip').textContent='CHAPTER '+q.c+' • '+q.t;
+  $('progressText').textContent='Question '+(idx+1)+' / '+questions.length;
+  $('pointsText').textContent=score+' / 400 pts';
+  $('progressBar').style.width=(idx/questions.length*100)+'%';
+  $('qnum').textContent='QUESTION '+String(idx+1).padStart(2,'0');
+  $('questionText').textContent=q.q;
+  $('options').innerHTML='';hide('feedback');hide('nextBtn');
+  q.o.forEach((opt,i)=>{
+    const b=document.createElement('button');b.className='option';
+    const letter=document.createElement('span');letter.className='letter';letter.textContent=String.fromCharCode(65+i);
+    const text=document.createElement('span');text.textContent=opt;
+    b.append(letter,text);b.addEventListener('click',()=>answer(i,b));$('options').appendChild(b);
+  });
+  $('scoreLive').textContent='Correct answers: '+correct+' • Points: '+score;
+  $('progressBar').style.width=(idx/questions.length*100)+'%';
+}
+function answer(n,button){
+ if(locked)return;locked=true;const q=questions[idx];chosen[idx]=n;
+ const buttons=[...$('options').querySelectorAll('button')];buttons.forEach((b,i)=>{b.disabled=true;if(i===q.a)b.classList.add('correct');});
+ const fb=$('feedback');show('feedback');
+ if(n===q.a){score+=10;correct++;fb.className='feedback good';fb.innerHTML='<strong>✓ Correct! +10 points</strong>'+q.e;}
+ else{button.classList.add('wrong');fb.className='feedback bad';fb.innerHTML='<strong>Not quite — the correct answer is '+String.fromCharCode(65+q.a)+'.</strong>'+q.e;}
+ $('pointsText').textContent=score+' / 400 pts';$('scoreLive').textContent='Correct answers: '+correct+' • Points: '+score;
+ $('progressBar').style.width=((idx+1)/questions.length*100)+'%';
+ $('nextBtn').textContent=idx===questions.length-1?'VIEW RESULTS →':'NEXT QUESTION →';show('nextBtn');
+}
+function nextQuestion(){if(!locked)return;if(idx<questions.length-1){idx++;renderQuestion();}else finishGame();}
+function finishGame(){
+ hide('game');show('results');const pct=Math.round(score/400*100);
+ $('finalScore').textContent=score+' / 400';$('correctCount').textContent=correct+'/40';$('percentage').textContent=pct+'%';
+ const secs=Math.round((Date.now()-startedAt)/1000);$('timeTaken').textContent=Math.floor(secs/60)+'m '+String(secs%60).padStart(2,'0')+'s';
+ $('resultHeading').textContent=pct>=85?'Outstanding, Biology Master!':pct>=70?'Great work, Scientist!':pct>=50?'Quest completed!':'Keep growing, Biologist!';
+ $('resultMessage').textContent=pct>=85?'Excellent mastery. Keep challenging yourself with application questions.':pct>=70?'A strong effort. Review the questions you missed to sharpen your understanding.':pct>=50?'You have a good foundation to build on. Use the answer review to target your revision.':'Every attempt is progress. Read the explanations and revisit the relevant textbook chapters.';
+ $('studentSummary').textContent='Student: '+$('studentName').value.trim()+' | Class: '+($('studentClass').value.trim()||'Not entered');
+ $('reviewList').innerHTML='';
+ questions.forEach((q,i)=>{
+  const item=document.createElement('div');item.className='reviewitem';
+  const head=document.createElement('strong');head.textContent=(i+1)+'. [Ch '+q.c+'] '+q.q;item.appendChild(head);
+  const ans=document.createElement('div');ans.className='answer';ans.textContent='Correct: '+String.fromCharCode(65+q.a)+'. '+q.o[q.a];item.appendChild(ans);
+  if(chosen[i]!==q.a){const your=document.createElement('div');your.className='your';your.textContent='Your answer: '+(chosen[i]===undefined?'Not answered':String.fromCharCode(65+chosen[i])+'. '+q.o[chosen[i]]);item.appendChild(your);}
+  const exp=document.createElement('div');exp.className='muted';exp.style.fontSize='13px';exp.style.marginTop='5px';exp.textContent=q.e;item.appendChild(exp);$('reviewList').appendChild(item);
+ });
+ $('copyBtn').textContent='COPY RESULTS';
+}
+function copyResults(){
+ const pct=Math.round(score/400*100);let lines=['BIOLOGY QUEST FORM 5 • DLP','Name: '+$('studentName').value.trim(),'Class: '+($('studentClass').value.trim()||'Not entered'),'Score: '+score+'/400 ('+pct+'%)','Correct: '+correct+'/40','Time: '+$('timeTaken').textContent,'','ANSWER REVIEW'];
+ questions.forEach((q,i)=>{lines.push((i+1)+'. Ch '+q.c+' — '+(chosen[i]===q.a?'Correct':'Incorrect')+'; Correct answer: '+String.fromCharCode(65+q.a)+'. '+q.o[q.a]);});
+ const txt=lines.join('\n');
+ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(()=>{$('copyBtn').textContent='COPIED ✓';}).catch(()=>fallbackCopy(txt));}else fallbackCopy(txt);
+}
+function fallbackCopy(txt){const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');$('copyBtn').textContent='COPIED ✓';}catch(e){$('copyBtn').textContent='SELECT & COPY MANUALLY';ta.style.width='100%';}ta.remove();}
+$('startBtn').addEventListener('click',startGame);$('nextBtn').addEventListener('click',nextQuestion);$('restartBtn').addEventListener('click',()=>{hide('results');show('start');window.scrollTo({top:0,behavior:'smooth'});});$('copyBtn').addEventListener('click',copyResults);
+</script>
+</body>
+</html>
